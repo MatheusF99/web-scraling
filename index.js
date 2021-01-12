@@ -1,7 +1,8 @@
+const fs = require('fs');
 const puppeteer = require('puppeteer');
 
 (async () => {
-  const browser = await puppeteer.launch({headless: false});
+  const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto('https://www.instagram.com/jefftewf');
   // await page.screenshot({path: 'rocketseat.png'});
@@ -20,6 +21,13 @@ const puppeteer = require('puppeteer');
       // tirar de dentro da funcao
       return imgList
   })
+  
+  //escrever os dados em um arquivo local
+  fs.writeFile('instagram.json', JSON.stringify(imgList, null, 2), err =>{
+    if(err) throw new Error('algo deu errado')
 
-  // await browser.close();
+    console.log('Feito');
+  })
+
+  await browser.close();
 })(); 
