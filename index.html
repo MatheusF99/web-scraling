@@ -4,37 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <style>
-        .container{
-            display: flex;
-            gap: .4rem;
-        }
-        li{
-            list-style: none;
-            text-decoration: none;
-        }
-        img{
-            width: 100%;
-            height: 100%;
+    <!-- <form id="igForm" class="custom-field">           
+        <input type="text" id="igID" required>
+        <span class="placeholder">insert @</span>
+        <button type="submit">Adicionar</button><br/>
+    </form> -->
 
-            object-fit: cover;
-        }
-    </style>
-        <div class="container"></div>
+    <div class="container"></div>
+
     <script>
         (async()=>{
-            const response = await fetch('./instagram.json')
-            const data = await response.json()
+    const response = await fetch('./instagram.json')
+    const data = await response.json()
 
-            // formatar os dadsos
-                const htmlList = data
-                .map(image => `<li><img src='${image.src}'></li>`)
-                .join('')
-            //colocar no html
-                document.querySelector('.container').innerHTML =htmlList
-        })()
+    // formatar os dadsos
+        const htmlList = data
+        .map(image => `<li><img src='${image.src}'></li>`)
+        .join('')
+    //colocar no html
+        document.querySelector('.container').innerHTML =htmlList
+})()
     </script>
 </body>
 </html>

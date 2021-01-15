@@ -1,13 +1,16 @@
 const fs = require('fs');
 const puppeteer = require('puppeteer');
 
+
+
+
 (async () => {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({headless: false});
   const page = await browser.newPage();
-  await page.goto('https://www.instagram.com/jefftewf');
+  await page.goto(`https://www.instagram.com/jefftewf`);
   // await page.screenshot({path: 'rocketseat.png'});
 
-  const imgList = await page.evaluate(() => {
+  const imgList = await page.evaluate(( ) => {
       // pegar as img que estao na parte dos posts
         const nodeList = document.querySelectorAll('article img')
       //tranformar o nodeList em array
