@@ -5,9 +5,9 @@ const puppeteer = require('puppeteer');
 
 
 (async () => {
-  const browser = await puppeteer.launch({headless: false});
+  const browser = await puppeteer.launch();
   const page = await browser.newPage();
-  await page.goto(`https://www.instagram.com/jefftewf`);
+  await page.goto(`https://www.instagram.com/ui.interceptor`);
   // await page.screenshot({path: 'rocketseat.png'});
 
   const imgList = await page.evaluate(( ) => {
