@@ -14,9 +14,7 @@
     </form> -->
 
     <div class="container">
-        <ul class="image-list">
-
-        </ul>
+        
     </div>
 
     <script>
@@ -26,10 +24,10 @@
 
             // formatar os dadsos
                 const htmlList = data
-                .map(image => `<li><img src='${image.src}'></li>`)
+                .map(image => `<img src='${image.src}'>`)
                 .join('')
             //colocar no html
-                document.querySelector('.image-list').innerHTML =htmlList
+                document.querySelector('.container').innerHTML =htmlList
         })()
     </script>
 </body>
